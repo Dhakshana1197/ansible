@@ -11,6 +11,8 @@ generate keypairs
 ansible-doc -l
 ##node explorter ##
 
+
+
 ---
 - name: Install Prometheus Node Exporter
   hosts: node1
@@ -73,7 +75,9 @@ ansible-doc -l
 ##promethus and grafanna##
 
 https://prometheus.io/download/
+#promethus##
 
+wget https://github.com/prometheus/prometheus/releases/download/v2.48.0-rc.0/prometheus-2.48.0-rc.0.linux-amd64.tar.gz
 ---
 - name: Install Prometheus and Grafana
   hosts: monitoring
@@ -159,4 +163,6 @@ https://prometheus.io/download/
         name: grafana-server
         enabled: yes
         state: started
+
+sum by(mode)(irate(node_cpu_seconds_total{mode!="idle"}[5m])) > 0
 
