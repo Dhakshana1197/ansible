@@ -3,6 +3,10 @@ https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.
 Adding users :
 generate key pairs 
 
+useradd ansibleadmin -s /bin/bash -m -d /home/ansibleadmin 
+ssh-keygen -t rsa -b 1024 -m PEM
+
+
 
 ###slave node ##
 
